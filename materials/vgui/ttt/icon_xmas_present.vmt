@@ -1,0 +1,7 @@
+"UnlitGeneric"
+{
+	"$basetexture" "vgui/ttt/icon_xmas_present.vtf"
+	"$translucent" 1
+	"$vertexalpha" 1
+	"$vertexcolor" 1
+}
