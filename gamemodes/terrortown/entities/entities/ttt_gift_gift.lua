@@ -92,8 +92,8 @@ if CLIENT then
 	local GetP
 
 	-- target ID function
-	hook.Add("TTTRenderEntityInfo", "TTT2GifterEntityInfo", function(data, params)
-		local e = data.ent
+	hook.Add("TTTRenderEntityInfo", "TTT2GifterEntityInfo", function(tData)
+		local e = tData:GetEntity()
 		if not e or not IsValid(e) or e:GetClass() ~= "ttt_gift_gift" then return end
 
 		if not e.ProperContentName then
@@ -124,24 +124,17 @@ if CLIENT then
 
 		local isOwner = client == owner
 
-		params.drawInfo = true
-		params.displayInfo.title.text = TryT("gifter_gift")
-
-		params.drawOutline = true
-		params.outlineColor = COLOR_GREEN
-
-		params.displayInfo.subtitle.text = owner and owner:Nick()
+		tData:EnableText()
+		tData:EnableOutline()
+		tData:SetOutlineColor(Color(0, 255, 150, 255))
+		tData:SetTitle(TryT("gifter_gift"))
+		tData:SetSubtitle(owner and owner:Nick())
+		tData:SetKeyBinding("+use")
 
 		if isOwner then
-			params.displayInfo.key = input.GetKeyCode(input.LookupBinding("+use"))
-			params.displayInfo.desc[#params.displayInfo.desc + 1] = {
-				text = GetP("gifter_own_gift", {content = e.ProperContentName}),
-			}
+			tData:AddDescriptionLine(GetP("gifter_own_gift", {content = e.ProperContentName}))
 		else
-			params.displayInfo.key = input.GetKeyCode(input.LookupBinding("+use"))
-			params.displayInfo.desc[#params.displayInfo.desc + 1] = {
-				text = TryT("gifter_desc_gift"),
-			}
+			tData:AddDescriptionLine(TryT("gifter_desc_gift"))
 		end
 	end)
 end
