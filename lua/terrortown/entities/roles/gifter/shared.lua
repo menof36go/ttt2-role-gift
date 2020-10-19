@@ -55,6 +55,18 @@ function ROLE:Initialize()
 		LANG.AddToLanguage("Deutsch", self.name .. "_gift", "Geschenk")
 		LANG.AddToLanguage("Deutsch", self.name .. "_own_gift", "Eins deiner Geschenke. Es beinhaltet \"{content}\", aber verdirb nicht die Überraschung!")
 		LANG.AddToLanguage("Deutsch", self.name .. "_desc_gift", "Ein Geschenk! Du solltest es schnell öffnen, um herauszufinden was drin ist.")
+		
+		LANG.AddToLanguage("Русский", self.name, "Даритель")
+		LANG.AddToLanguage("Русский", "info_popup_" .. self.name,
+			[[Вы даритель!
+				Покупайте подарки для своих близких, но будьте осторожны при выборе!]])
+		LANG.AddToLanguage("Русский", "body_found_" .. self.abbr, "Это был даритель...")
+		LANG.AddToLanguage("Русский", "search_role_" .. self.abbr, "Этот человек был дарителем!")
+		LANG.AddToLanguage("Русский", "target_" .. self.name, "Даритель")
+		LANG.AddToLanguage("Русский", "ttt2_desc_" .. self.name, [[Даритель может получить доступ к своему ([C]) магазину и покупать подарки для других людей. Убедитесь, что получатели невиновны!]])
+		LANG.AddToLanguage("Русский", self.name .. "_gift", "Подарок")
+		LANG.AddToLanguage("Русский", self.name .. "_own_gift", "Подарок, который вы сделали для кого-то особенного. Он содержит \"{content}\", но не испортите сюрприз!")
+		LANG.AddToLanguage("Русский", self.name .. "_desc_gift", "Подарок! Что могло быть внутри? Может, тебе стоит взглянуть на это и узнать.")
 	end
 end
 
